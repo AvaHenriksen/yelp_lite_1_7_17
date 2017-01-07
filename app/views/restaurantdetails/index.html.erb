@@ -23,7 +23,7 @@
         <td><%= restaurantdetail.description %></td>
         <td><%= restaurantdetail.address %></td>
         <td><%= restaurantdetail.website %></td>
-        <td><%= restaurantdetail.cover_photo %></td>
+        <td><img src='<%= restaurantdetail.cover_photo %>' class='img-responsive'></td>
         <td>
           <a href="/restaurantdetails/<%= restaurantdetail.id %>" class="btn btn-primary">Show</a>
           <a href="/restaurantdetails/<%= restaurantdetail.id %>/edit" class="btn btn-warning">Edit</a>

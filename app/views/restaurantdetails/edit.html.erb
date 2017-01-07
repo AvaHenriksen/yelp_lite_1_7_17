@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/update_restaurantdetail/<%= @restaurantdetail.id %>" method="post">
+    <form action="/update_restaurantdetail/<%= @restaurantdetail.id %>" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -60,7 +60,8 @@
           Cover photo
         </label>
 
-        <input type="text" id="cover_photo" name="cover_photo" placeholder="Cover photo" class="form-control" value="<%= @restaurantdetail.cover_photo %>">
+        <%= cl_image_tag(@restaurantdetail.cover_photo.to_s, :width => 90, :height => 90, :crop => :thumb) %>
+        <input type="file" id="cover_photo" name="cover_photo" class="form-control">
       </div>
 
       <button class="btn btn-warning">

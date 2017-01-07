@@ -20,7 +20,7 @@
       <% @reviews.each do |review| %>
       <tr>
         <td><%= review.user.email %></td>
-        <td><%= review.photos %></td>
+        <td><img src='<%= review.photos %>' class='img-responsive'></td>
         <td><%= review.stars %></td>
         <td><%= review.content %></td>
         <td><%= review.restaurant.restaurant_name %></td>
