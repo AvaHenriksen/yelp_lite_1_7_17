@@ -23,7 +23,7 @@
         <td><%= review.photos %></td>
         <td><%= review.stars %></td>
         <td><%= review.content %></td>
-        <td><%= review.restaurant_id %></td>
+        <td><%= review.restaurant.restaurant_name %></td>
         <td>
           <a href="/reviews/<%= review.id %>" class="btn btn-primary">Show</a>
           <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">Edit</a>
