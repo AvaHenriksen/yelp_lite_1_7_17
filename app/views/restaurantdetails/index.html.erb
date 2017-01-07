@@ -28,7 +28,13 @@
 
       <% @restaurantdetails.each do |restaurantdetail| %>
       <tr>
-        <td><%= restaurantdetail.restaurant.restaurant_name %></td>
+        <td>
+          <% if restaurantdetail.restaurant.present? %>
+            <a href="/restaurants/<%= restaurantdetail.restaurant.id %>">
+              <%= restaurantdetail.restaurant.restaurant_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= restaurantdetail.description %></td>
         <td><%= restaurantdetail.address %></td>
         <td><%= restaurantdetail.website %></td>
