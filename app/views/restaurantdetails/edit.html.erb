@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @restaurantdetail.errors.any? %>
+  <% @restaurantdetail.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Restaurantdetail #<%= @restaurantdetail.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_restaurantdetail/<%= @restaurantdetail.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for restaurant_id -->
+      <div class="form-group">
+        <label for="restaurant_id" class="control-label">
+          Restaurant
+        </label>
+
+        <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @restaurantdetail.restaurant_id %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @restaurantdetail.description %></textarea>
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @restaurantdetail.address %>">
+      </div>
+
+      <!-- Label and input for website -->
+      <div class="form-group">
+        <label for="website" class="control-label">
+          Website
+        </label>
+
+        <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="<%= @restaurantdetail.website %>">
+      </div>
+
+      <!-- Label and input for cover_photo -->
+      <div class="form-group">
+        <label for="cover_photo" class="control-label">
+          Cover photo
+        </label>
+
+        <input type="text" id="cover_photo" name="cover_photo" placeholder="Cover photo" class="form-control" value="<%= @restaurantdetail.cover_photo %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Restaurantdetail
+      </button>
+      or
+      <a href="/restaurantdetails/<%= @restaurantdetail.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
