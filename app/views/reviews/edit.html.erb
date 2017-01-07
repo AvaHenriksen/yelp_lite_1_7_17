@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @review.errors.any? %>
+  <% @review.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Review #<%= @review.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_review/<%= @review.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @review.user_id %>">
+      </div>
+
+      <!-- Label and input for photos -->
+      <div class="form-group">
+        <label for="photos" class="control-label">
+          Photos
+        </label>
+
+        <input type="text" id="photos" name="photos" placeholder="Photos" class="form-control" value="<%= @review.photos %>">
+      </div>
+
+      <!-- Label and input for stars -->
+      <div class="form-group">
+        <label for="stars" class="control-label">
+          Stars
+        </label>
+
+        <input type="text" id="stars" name="stars" placeholder="Stars" class="form-control" value="<%= @review.stars %>">
+      </div>
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <textarea id="content" name="content" placeholder="Content" class="form-control" rows="3"><%= @review.content %></textarea>
+      </div>
+
+      <!-- Label and input for restaurant_id -->
+      <div class="form-group">
+        <label for="restaurant_id" class="control-label">
+          Restaurant
+        </label>
+
+        <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @review.restaurant_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Review
+      </button>
+      or
+      <a href="/reviews/<%= @review.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
