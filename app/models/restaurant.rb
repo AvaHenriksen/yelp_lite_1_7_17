@@ -5,6 +5,7 @@ class Restaurant < ApplicationRecord
              :dependent => :destroy
 
   has_one    :restaurantdetail,
+             :class_name => "Detail",
              :dependent => :destroy
 
   # Indirect associations

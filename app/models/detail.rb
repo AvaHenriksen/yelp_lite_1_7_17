@@ -1,4 +1,4 @@
-class Restaurantdetail < ApplicationRecord
+class Detail < ApplicationRecord
   before_validation :geocode_address
 
   def geocode_address

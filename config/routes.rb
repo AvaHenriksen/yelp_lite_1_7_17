@@ -2,21 +2,21 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "reviews#index"
-  # Routes for the Restaurantdetail resource:
+  # Routes for the Detail resource:
   # CREATE
-  get "/restaurantdetails/new", :controller => "restaurantdetails", :action => "new"
-  post "/create_restaurantdetail", :controller => "restaurantdetails", :action => "create"
+  get "/details/new", :controller => "details", :action => "new"
+  post "/create_detail", :controller => "details", :action => "create"
 
   # READ
-  get "/restaurantdetails", :controller => "restaurantdetails", :action => "index"
-  get "/restaurantdetails/:id", :controller => "restaurantdetails", :action => "show"
+  get "/details", :controller => "details", :action => "index"
+  get "/details/:id", :controller => "details", :action => "show"
 
   # UPDATE
-  get "/restaurantdetails/:id/edit", :controller => "restaurantdetails", :action => "edit"
-  post "/update_restaurantdetail/:id", :controller => "restaurantdetails", :action => "update"
+  get "/details/:id/edit", :controller => "details", :action => "edit"
+  post "/update_detail/:id", :controller => "details", :action => "update"
 
   # DELETE
-  get "/delete_restaurantdetail/:id", :controller => "restaurantdetails", :action => "destroy"
+  get "/delete_detail/:id", :controller => "details", :action => "destroy"
   #------------------------------
 
   # Routes for the Restaurant resource:

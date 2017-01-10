@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Restaurantdetail #<%= @restaurantdetail.id %></h3>
+  <h3>Detail #<%= @detail.id %></h3>
 </div>
 
 <div class="row">
@@ -7,15 +7,15 @@
     <dl class="dl-horizontal">
       <dt>Restaurant</dt>
       <dd>
-        <% if @restaurantdetail.restaurant.present? %>
-          <a href="/restaurants/<%= @restaurantdetail.restaurant_id %>">
-            <%= @restaurantdetail.restaurant.restaurant_name %>
+        <% if @detail.restaurant.present? %>
+          <a href="/restaurants/<%= @detail.restaurant_id %>">
+            <%= @detail.restaurant.restaurant_name %>
           </a>
         <% end %>
       </dd>
 
       <dt>Description</dt>
-      <dd><%= @restaurantdetail.description %></dd>
+      <dd><%= @detail.description %></dd>
 
       <dt>Address</dt>
       <dd>
@@ -25,21 +25,21 @@
       </dd>
 
       <dt>Website</dt>
-      <dd><%= @restaurantdetail.website %></dd>
+      <dd><%= @detail.website %></dd>
 
       <dt>Cover photo</dt>
-      <dd><img src="<%= @restaurantdetail.cover_photo %>" class="img-responsive"></dd>
+      <dd><img src="<%= @detail.cover_photo %>" class="img-responsive"></dd>
 
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/restaurantdetails" class="btn btn-primary">
+      <a href="/details" class="btn btn-primary">
         Back
       </a>
-      <a href="/restaurantdetails/<%= @restaurantdetail.id %>/edit" class="btn btn-warning">
+      <a href="/details/<%= @detail.id %>/edit" class="btn btn-warning">
         Edit
       </a>
-      <a href="/delete_restaurantdetail/<%= @restaurantdetail.id %>" class="btn btn-danger" rel="nofollow">
+      <a href="/delete_detail/<%= @detail.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
     </div>
@@ -54,9 +54,9 @@
   handler.buildMap({ provider: {}, internal: {id: 'location_map'}}, function(){
     markers = handler.addMarkers([
       {
-        "lat": <%= @restaurantdetail.address_latitude %>,
-        "lng": <%= @restaurantdetail.address_longitude %>,
-        "infowindow": "<h5><%= @restaurantdetail.created_at %></h5><small><%= @restaurantdetail.address_formatted_address %></small>"
+        "lat": <%= @detail.address_latitude %>,
+        "lng": <%= @detail.address_longitude %>,
+        "infowindow": "<h5><%= @detail.created_at %></h5><small><%= @detail.address_formatted_address %></small>"
       }
     ]);
     handler.bounds.extendWith(markers);
