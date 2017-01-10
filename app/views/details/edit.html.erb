@@ -1,6 +1,6 @@
 <!-- Validation failure messages -->
-<% if @restaurantdetail.errors.any? %>
-  <% @restaurantdetail.errors.full_messages.each do |message| %>
+<% if @detail.errors.any? %>
+  <% @detail.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -9,12 +9,12 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Restaurantdetail #<%= @restaurantdetail.id %></h3>
+  <h3>Edit Detail #<%= @detail.id %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/update_restaurantdetail/<%= @restaurantdetail.id %>" method="post" enctype="multipart/form-data">
+    <form action="/update_detail/<%= @detail.id %>" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -24,7 +24,7 @@
           Restaurant
         </label>
 
-        <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :restaurant_name, @restaurantdetail.restaurant_id), :class => "form-control") %>
+        <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :restaurant_name, @detail.restaurant_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for description -->
@@ -33,7 +33,7 @@
           Description
         </label>
 
-        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @restaurantdetail.description %></textarea>
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @detail.description %></textarea>
       </div>
 
       <!-- Label and input for address -->
@@ -42,7 +42,7 @@
           Address
         </label>
 
-        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @restaurantdetail.address %>">
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @detail.address %>">
       </div>
 
       <!-- Label and input for website -->
@@ -51,7 +51,7 @@
           Website
         </label>
 
-        <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="<%= @restaurantdetail.website %>">
+        <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="<%= @detail.website %>">
       </div>
 
       <!-- Label and input for cover_photo -->
@@ -60,15 +60,15 @@
           Cover photo
         </label>
 
-        <%= cl_image_tag(@restaurantdetail.cover_photo.to_s, :width => 90, :height => 90, :crop => :thumb) %>
+        <%= cl_image_tag(@detail.cover_photo.to_s, :width => 90, :height => 90, :crop => :thumb) %>
         <input type="file" id="cover_photo" name="cover_photo" class="form-control">
       </div>
 
       <button class="btn btn-warning">
-        Update Restaurantdetail
+        Update Detail
       </button>
       or
-      <a href="/restaurantdetails/<%= @restaurantdetail.id %>">Cancel</a>
+      <a href="/details/<%= @detail.id %>">Cancel</a>
     </form>
   </div>
 </div>

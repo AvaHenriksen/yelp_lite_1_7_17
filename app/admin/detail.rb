@@ -1,4 +1,4 @@
-ActiveAdmin.register Restaurantdetail do
+ActiveAdmin.register Detail do
 
  permit_params :restaurant_id, :description, :address, :website, :cover_photo
 

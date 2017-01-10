@@ -1,6 +1,6 @@
-class CreateRestaurantdetails < ActiveRecord::Migration
+class CreateDetails < ActiveRecord::Migration
   def change
-    create_table :restaurantdetails do |t|
+    create_table :details do |t|
       t.integer :restaurant_id
       t.text :description
       t.string :address

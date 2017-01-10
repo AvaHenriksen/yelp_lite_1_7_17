@@ -1,11 +1,11 @@
 <div class="page-header">
   <h1>
-    Restaurantdetails
-    <a href="/restaurantdetails/new" class="btn btn-lg btn-success">New Restaurantdetail</a>
+    Details
+    <a href="/details/new" class="btn btn-lg btn-success">New Detail</a>
   </h1>
 </div><div class="row mb-1">
   <div class="col-md-12">
-    <%= search_form_for @q, :class => collapse_search_form, :id => "restaurantdetails_filters" do |f| %>
+    <%= search_form_for @q, :class => collapse_search_form, :id => "details_filters" do |f| %>
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
@@ -65,9 +65,9 @@
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-      <a href="/restaurantdetails" class="btn btn-default btn-block mb-1">Clear filters</a>
+      <a href="/details" class="btn btn-default btn-block mb-1">Clear filters</a>
     <% end %>
-    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#restaurantdetails_filters">
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#details_filters">
       Show Filters
     </a>
   </div>
@@ -94,28 +94,28 @@
         <th>Actions</th>
       </tr>
 
-      <% @restaurantdetails.each do |restaurantdetail| %>
+      <% @details.each do |detail| %>
       <tr>
         <td>
-          <% if restaurantdetail.restaurant.present? %>
-            <a href="/restaurants/<%= restaurantdetail.restaurant.id %>">
-              <%= restaurantdetail.restaurant.restaurant_name %>
+          <% if detail.restaurant.present? %>
+            <a href="/restaurants/<%= detail.restaurant.id %>">
+              <%= detail.restaurant.restaurant_name %>
             </a>
           <% end %>
         </td>
-        <td><%= restaurantdetail.description %></td>
-        <td><%= restaurantdetail.address %></td>
-        <td><%= restaurantdetail.website %></td>
-        <td><img src='<%= restaurantdetail.cover_photo %>' class='img-responsive'></td>
+        <td><%= detail.description %></td>
+        <td><%= detail.address %></td>
+        <td><%= detail.website %></td>
+        <td><img src='<%= detail.cover_photo %>' class='img-responsive'></td>
         <td>
-          <a href="/restaurantdetails/<%= restaurantdetail.id %>" class="btn btn-primary">Show</a>
-          <a href="/restaurantdetails/<%= restaurantdetail.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_restaurantdetail/<%= restaurantdetail.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/details/<%= detail.id %>" class="btn btn-primary">Show</a>
+          <a href="/details/<%= detail.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_detail/<%= detail.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
     </table>
-    <%= paginate @restaurantdetails, theme: 'twitter-bootstrap-4' %>
+    <%= paginate @details, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>
 
